@@ -1,147 +1,157 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Let's Find Out What's Blocking You From Real Love?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Venus Quiz</title>
   <style>
     body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #0d0d0d;
-      color: #fff;
-      text-align: center;
+      background-color: #fff0f5;
+      font-family: 'Georgia', serif;
+      color: #1a1a1a;
       margin: 0;
       padding: 0;
-    }
-    .container {
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     h1 {
+      margin-top: 30px;
       font-size: 28px;
-      margin-bottom: 30px;
+      text-align: center;
     }
-    .question-box, .result-box {
-      display: none;
+    .quiz-container {
+      background: #1a132f;
+      color: #f5d8ff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin: 40px auto;
+      width: 90%;
       transition: all 0.3s ease-in-out;
     }
-    .question-box.active {
-      display: block;
-    }
     .question {
-      font-size: 20px;
+      font-weight: bold;
+      font-size: 18px;
       margin-bottom: 20px;
+      text-align: center;
     }
-    .answers button {
+    .options button {
+      background-color: #f5d8ff;
+      color: #1a1a1a;
+      border: none;
+      padding: 12px;
+      margin: 10px auto;
       display: block;
       width: 100%;
-      padding: 12px 20px;
-      margin: 10px 0;
-      background-color: #fff;
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 10px;
       cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
     }
-    .answers button:hover {
-      background-color: #f0f0f0;
+    .options button:hover {
+      background-color: #e5b4fc;
     }
     .result-box {
+      background: #1a132f;
+      color: #ffffff;
+      text-align: center;
       padding: 30px;
-    }
-    .result {
-      font-size: 18px;
-      margin-bottom: 25px;
+      border-radius: 15px;
+      margin: 30px auto;
+      max-width: 500px;
+      width: 90%;
     }
     .cta-button {
-      background-color: #ff69b4;
-      color: #fff;
-      border: none;
+      background-color: #f5d8ff;
+      color: #1a1a1a;
       padding: 12px 24px;
       font-size: 16px;
-      border-radius: 6px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
-    }
-    .cta-button:hover {
-      background-color: #ff85c1;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Let's Find Out What's Blocking You From Real Love?</h1>
+  <h1>Let's Find Out What's Blocking You From Real Love?</h1>
+  <div class="quiz-container" id="quizContainer">
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+  </div>
 
-    <div class="question-box active" id="questionBox">
-      <div class="question" id="questionText"></div>
-      <div class="answers" id="answersBox"></div>
+  <div class="result-box" id="resultBox" style="display:none;">
+    <div class="result">
+      You're not broken, but your heart may be carrying stories it no longer needs. If you've ever wondered why love keeps hurting or slipping away, the truth might surprise you. The Venus Code is where many begin their healing journey, and it could be exactly what you've been looking for.
     </div>
-
-    <div class="result-box" id="resultBox">
-      <div class="result">
-        You are not broken. But your heart may be carrying stories it no longer needs. If you have ever wondered why love keeps hurting or slipping away, the truth might surprise you. The Venus Code is where many begin their healing journey, and it could be exactly what you've been looking for.
-      </div>
-      <button class="cta-button" onclick="window.location.href='https://slatelux.com/products/venus-code'">Discover The Venus Code</button>
-    </div>
+    <button class="cta-button" onclick="window.location.href='https://slatelux.com/products/venus-code'">Discover The Venus Code</button>
   </div>
 
   <script>
     const questions = [
-      {
-        question: "How often do you feel like you're giving more than you're getting in relationships?",
-        answers: ["Always", "Sometimes", "Rarely", "Never"]
-      },
-      {
-        question: "What’s the biggest struggle in your love life right now?",
-        answers: ["Attracting the wrong people", "Feeling emotionally disconnected", "Repeating the same toxic patterns", "Not finding anyone at all"]
-      },
-      {
-        question: "When someone pulls away emotionally, how do you usually respond?",
-        answers: ["Chase harder", "Shut down", "Blame yourself", "Pretend you’re fine"]
-      },
-      {
-        question: "How often do you feel misunderstood in relationships?",
-        answers: ["All the time", "Sometimes", "Occasionally", "Rarely"]
-      },
-      {
-        question: "What kind of love are you truly craving?",
-        answers: ["Safe and consistent", "Deep and spiritual", "Passionate and intense", "Loyal and long-lasting"]
-      }
+      "How often do you feel like you're giving more than you're getting in relationships?",
+      "What’s the biggest struggle in your love life right now?",
+      "When someone pulls away emotionally, how do you usually respond?",
+      "How often do you feel misunderstood in relationships?",
+      "What kind of love are you truly craving?",
+      "Do you ever feel like you're meant for a soulmate connection but keep ending up with people who don't see your worth?",
+      "What best describes your current love life?",
+      "Do you believe you have a love block — something that keeps you from the relationship you deserve?",
+      "Have you ever felt like you’re always the one who loves more?",
+      "How quickly do you catch feelings?",
+      "How would your ex describe you in one word?",
+      "Which love quote speaks to you the most?",
+      "What scares you most in love?",
+      "If love had a reset button, would you press it?"
+    ];
+
+    const optionsList = [
+      ["Always", "Sometimes", "Rarely", "Never"],
+      ["Attracting the wrong people", "Feeling emotionally disconnected", "Repeating toxic patterns", "Not finding anyone at all"],
+      ["Chase harder", "Shut down", "Blame yourself", "Pretend you're fine"],
+      ["All the time", "Sometimes", "Occasionally", "Rarely"],
+      ["Safe and consistent", "Deep and spiritual", "Passionate and intense", "Loyal and long-lasting"],
+      ["Yes", "No", "I'm not sure"],
+      ["Complicated", "Stuck", "Nonexistent", "Healing"],
+      ["Definitely", "Maybe", "I never thought about that", "No"],
+      ["Yes, every time", "Sometimes", "Rarely", "Never"],
+      ["Instantly", "Slowly", "Depends on the person", "I try to avoid it"],
+      ["Intense", "Loyal", "Distant", "Overwhelming"],
+      ["I just want someone who chooses me", "Why do I fall for potential?", "I love deeply, even when it hurts", "I'm tired of being almost loved"],
+      ["Abandonment", "Rejection", "Betrayal", "Vulnerability"],
+      ["Yes, 100%", "Maybe", "No, I’ve learned from it"]
     ];
 
     let currentQuestion = 0;
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const quizContainer = document.getElementById("quizContainer");
+    const resultBox = document.getElementById("resultBox");
 
-    const questionText = document.getElementById('questionText');
-    const answersBox = document.getElementById('answersBox');
-    const questionBox = document.getElementById('questionBox');
-    const resultBox = document.getElementById('resultBox');
-
-    function showQuestion(index) {
-      const q = questions[index];
-      questionText.textContent = q.question;
-      answersBox.innerHTML = '';
-      q.answers.forEach(answer => {
-        const btn = document.createElement('button');
-        btn.textContent = answer;
-        btn.onclick = () => handleAnswer();
-        answersBox.appendChild(btn);
+    function showQuestion() {
+      questionEl.textContent = questions[currentQuestion];
+      optionsEl.innerHTML = "";
+      optionsList[currentQuestion].forEach(option => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.onclick = () => nextQuestion();
+        optionsEl.appendChild(button);
       });
     }
 
-    function handleAnswer() {
+    function nextQuestion() {
       currentQuestion++;
       if (currentQuestion < questions.length) {
-        showQuestion(currentQuestion);
+        showQuestion();
       } else {
-        questionBox.classList.remove('active');
-        resultBox.style.display = 'block';
+        quizContainer.style.display = "none";
+        resultBox.style.display = "block";
       }
     }
 
-    // Initialize quiz
-    showQuestion(currentQuestion);
+    showQuestion();
   </script>
 </body>
 </html>
