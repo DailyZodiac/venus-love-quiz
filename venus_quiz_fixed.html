@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Let's Find Out What's Blocking You From Real Love?</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    .question-box, .result-box {
+      display: none;
+      transition: all 0.3s ease-in-out;
+    }
+    .question-box.active {
+      display: block;
+    }
+    .question {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .answers button {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      margin: 10px 0;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .answers button:hover {
+      background-color: #f0f0f0;
+    }
+    .result-box {
+      padding: 30px;
+    }
+    .result {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+    .cta-button {
+      background-color: #ff69b4;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .cta-button:hover {
+      background-color: #ff85c1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Let's Find Out What's Blocking You From Real Love?</h1>
+
+    <div class="question-box active" id="questionBox">
+      <div class="question" id="questionText"></div>
+      <div class="answers" id="answersBox"></div>
+    </div>
+
+    <div class="result-box" id="resultBox">
+      <div class="result">
+        You are not broken. But your heart may be carrying stories it no longer needs. If you have ever wondered why love keeps hurting or slipping away, the truth might surprise you. The Venus Code is where many begin their healing journey, and it could be exactly what you've been looking for.
+      </div>
+      <button class="cta-button" onclick="window.location.href='https://slatelux.com/products/venus-code'">Discover The Venus Code</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "How often do you feel like you're giving more than you're getting in relationships?",
+        answers: ["Always", "Sometimes", "Rarely", "Never"]
+      },
+      {
+        question: "What’s the biggest struggle in your love life right now?",
+        answers: ["Attracting the wrong people", "Feeling emotionally disconnected", "Repeating the same toxic patterns", "Not finding anyone at all"]
+      },
+      {
+        question: "When someone pulls away emotionally, how do you usually respond?",
+        answers: ["Chase harder", "Shut down", "Blame yourself", "Pretend you’re fine"]
+      },
+      {
+        question: "How often do you feel misunderstood in relationships?",
+        answers: ["All the time", "Sometimes", "Occasionally", "Rarely"]
+      },
+      {
+        question: "What kind of love are you truly craving?",
+        answers: ["Safe and consistent", "Deep and spiritual", "Passionate and intense", "Loyal and long-lasting"]
+      }
+    ];
+
+    let currentQuestion = 0;
+
+    const questionText = document.getElementById('questionText');
+    const answersBox = document.getElementById('answersBox');
+    const questionBox = document.getElementById('questionBox');
+    const resultBox = document.getElementById('resultBox');
+
+    function showQuestion(index) {
+      const q = questions[index];
+      questionText.textContent = q.question;
+      answersBox.innerHTML = '';
+      q.answers.forEach(answer => {
+        const btn = document.createElement('button');
+        btn.textContent = answer;
+        btn.onclick = () => handleAnswer();
+        answersBox.appendChild(btn);
+      });
+    }
+
+    function handleAnswer() {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        showQuestion(currentQuestion);
+      } else {
+        questionBox.classList.remove('active');
+        resultBox.style.display = 'block';
+      }
+    }
+
+    // Initialize quiz
+    showQuestion(currentQuestion);
+  </script>
+</body>
+</html>
