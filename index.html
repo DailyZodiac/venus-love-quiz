@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Venus Code Love Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #1e1e30, #3a2f5b);
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      font-size: 28px;
+      padding: 40px 20px 10px;
+    }
+    .quiz-container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+    }
+    .question-box {
+      display: none;
+    }
+    .question-box.active {
+      display: block;
+    }
+    .answers button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background-color: #ff6f91;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .answers button:hover {
+      background-color: #ff3e6c;
+    }
+    .result-box {
+      display: none;
+      margin-top: 40px;
+    }
+    .cta-button {
+      margin-top: 20px;
+      background-color: #ffd700;
+      color: black;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Let's Find Out What's Blocking You From Real Love?</h1>
+  <div class="quiz-container">
+    <div class="question-box active">
+      <p>How often do you feel like you're giving more than you're getting in relationships?</p>
+      <div class="answers">
+        <button>Always</button>
+        <button>Sometimes</button>
+        <button>Rarely</button>
+        <button>Never</button>
+      </div>
+    </div>
+    <div class="result-box" id="resultBox">
+      <div class="result">
+        You’re not broken, but your heart may be carrying stories it no longer needs. If you’ve ever wondered why love keeps hurting or slipping away, the truth might surprise you. The Venus Code is where many begin their healing journey, and it could be exactly what you've been looking for.
+      </div>
+      <button class="cta-button" onclick="window.location.href='https://slatelux.com/products/venus-code'">Discover The Venus Code</button>
+    </div>
+  </div>
+  <script>
+    const questions = document.querySelectorAll('.question-box');
+    const answers = document.querySelectorAll('.answers button');
+    let current = 0;
+
+    answers.forEach(button => {
+      button.addEventListener('click', () => {
+        questions[current].classList.remove('active');
+        current++;
+        if (current < questions.length) {
+          questions[current].classList.add('active');
+        } else {
+          document.getElementById('resultBox').style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
